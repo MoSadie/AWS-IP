@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AWS IP Range Finder | MoSadie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <p>
+        <label for="region-select">
+            <h2>Select a region:</h2>
+        </label>
+        <select id="region-select" onchange="updateResults()">
+            <option value="loading">Loading...</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="service-select">
+            <h2>Select a service:</h2>
+        </label>
+        <select id="service-select" onchange="updateResults()">
+            <option value="loading">Loading...</option>
+        </select>
+    </p>
+
+    <br />
+
+    <h1 id="results">The IP Prefix for <span id="service"></span> in <span id="region"></span> is <span id="copy"
+            onClick="copyIP()" title="Click to copy the IP!" style="cursor: pointer;">📋</span><span id="ip"></span>
+    </h1>
+
+    <br />
+
+    <p>The raw JSON data can be found here: <a id="data" href="https://ip-ranges.amazonaws.com/ip-ranges.json"
+            target="_blank">https://ip-ranges.amazonaws.com/ip-ranges.json</a></p>
+    <p>Documentation for the JSON file can be found here: <a
+            href="https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html"
+            target="_blank">https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html</a></p>
+
+    <script>load();</script>
+
+</body>
+
+</html>
